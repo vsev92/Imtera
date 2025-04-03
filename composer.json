@@ -1,0 +1,19 @@
+{
+    "name": "vsev92/imtera",
+    "description": "test project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vsev92\\Imtera\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vsev92",
+            "email": "vsev92@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
