@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function recipients(): HasMany
+    {
+        return $this->hasMany('App\Models\Recipients', 'user_id');
+    }
 }
