@@ -17,33 +17,29 @@
                     Добавить получателя</a>
             </div>
             @endcan
-        </div>
 
-        <table class="mt-4">
-            <thead class="border-b-2 border-solid border-black text-left">
-                <tr>
+
+            <table class="mt-4">
+                <thead class="border-b-2 border-solid border-black text-left">
                     <th>Имя</th>
                     <th>Телефон</th>
                     <th>email</th>
                     <th>День рождения</th>
+                </thead>
+
+                @foreach($recipients as $recipient)
+                <tr class="border-b border-dashed text-left">
+                    <td>{{$recipient->fullName}}</td>
+                    <td>{{$recipient->phone}}</td>
+                    <td>{{$recipient->email}}</td>
+                    <td>{{$recipient->birthday}}</td>
                 </tr>
-            </thead>
-
-            @foreach($recipients as $recipient)
-            <tr class="border-b border-dashed text-left">
-                <td>{{recipient->name}}</td>
-                <td>{{recipient->phone}}</td>
-                <td>{{recipient->email}}</td>
-                <td>{{recipient->birthday}}</td>
-                <td>{{$task->status->name}}</td>
-            </tr>
-            @endforeach
-        </table>
-
+                @endforeach
+            </table>
+        </div>
         <div class="mt-4">
             {{ $recipients->links() }}
         </div>
-    </div>
     </div>
 </section>
 @endsection

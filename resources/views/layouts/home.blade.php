@@ -51,18 +51,36 @@
                                     Получатели</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                                    Статусы </a>
+                                <a href="{{route('recipients.store')}}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
+                                    отправить </a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                                    Метки </a>
+                                <a href="{{route('excel.showForm')}}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
+                                    Добавить получателей</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
+
+
+            <form action="{{ route('recipients.store') }}" method="POST">
+                @csrf
+
+
+                <label for="message">Ваше сообщение:</label>
+                <textarea name="message" id="message" required>{{ old('message') }}</textarea>
+
+
+                <button type="submit">Отправить</button>
+            </form>
+
+
+
         </header>
+        <!-- Форма с методом POST -->
+
         @yield('content')
     </div>
 </body>

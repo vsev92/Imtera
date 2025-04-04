@@ -3,12 +3,18 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipientController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelController;
 
 Route::get('/', function () {
     return view('greetFromHexlet');
 })->name('home');
 
 Route::resource('recipients', RecipientController::class);
+
+
+
+Route::get('/excel/upload', [ExcelController::class, 'showForm'])->name('excel.showForm');;
+Route::post('/excel/upload', [ExcelController::class, 'upload'])->name('excel.upload');
 
 
 Route::get('/dashboard', function () {

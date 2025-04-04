@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipient;
 use Illuminate\Http\Request;
+use App\Mail\SenderMails;
+use Illuminate\Support\Facades\Mail;
 
 class RecipientController extends Controller
 {
@@ -13,7 +15,7 @@ class RecipientController extends Controller
     public function index()
     {
         $recipients = Recipient::paginate(15);
-        dd($recipients);
+        //dd($recipients);
         return view('recipients.index', compact('recipients'));
     }
 
@@ -25,14 +27,23 @@ class RecipientController extends Controller
         //
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
-    }
 
+        $u = Recipient::factory()->create([
+            'fullName' => 'Vsevolod',
+            'email' => 'test@example.com',
+        ]);
+        Mail::to('vsev92@gmail.com')->send(new SenderMails($u));
+
+
+        return response()->json(['status' => 'Email sent']);
+    }
     /**
      * Display the specified resource.
      */

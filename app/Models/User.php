@@ -48,6 +48,6 @@ class User extends Authenticatable
 
     public function recipients(): HasMany
     {
-        return $this->hasMany('App\Models\Recipients', 'user_id');
+        return $this->hasMany('App\Models\Recipient', 'owner_id');
     }
 }
